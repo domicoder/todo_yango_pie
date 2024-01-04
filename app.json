@@ -1,0 +1,55 @@
+{
+  "name": "todo-yango-pie",
+  "env": {
+    "ALLOWED_HOSTS": {
+      "value": ".herokuapp.com"
+    },
+    "DEBUG": {
+      "value": "True"
+    },
+    "DISABLE_COLLECTSTATIC": {
+      "value": 0
+    },
+    "ENVIRONMENT": {
+      "value": "review"
+    },
+    "PROJECT_PATH": {
+      "value": "todo_yango_pie"
+    },
+    "NPM_CONFIG_PRODUCTION": {
+      "value": "false"
+    },
+    "DJANGO_SUPERUSER_PASSWORD": {
+      "value": "cg&51o6-k+(!l74z4o3^zi1#(!#)(b+q-^pcb@zr9s80n*^+vv"
+    },
+    "CYPRESS_TEST_USER_PASS": {
+      "value": "cg&51o6-k+(!l74z4o3^zi1#(!#)(b+q-^pcb@zr9s80n*^+vv"
+    },
+    "SECRET_KEY": {
+      "generator": "secret"
+    }
+  },
+  "addons": [
+    "heroku-postgresql:standard-0",
+    "papertrail:Choklad"
+  ],
+  "environments": {
+    "review": {
+      "addons": [
+        "heroku-postgresql:mini",
+        "papertrail:Choklad"
+      ]
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "scripts": {
+    "postdeploy": "./scripts/db_setup.sh"
+  }
+}
